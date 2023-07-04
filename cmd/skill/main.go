@@ -32,9 +32,6 @@ func webhook(w http.ResponseWriter, r *http.Request) {
     `))
 }
 
-
-
-
 // функция main вызывается автоматически при запуске приложения
 func main() {
 

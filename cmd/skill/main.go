@@ -5,6 +5,13 @@ import (
 	"net/http"
 )
 
+func main() {
+
+	if err := run(); err != nil {
+		panic(err)
+	}
+}
+
 // функция run будет полезна при инициализации зависимостей сервера перед запуском
 func run() error {
 	return http.ListenAndServe(`:8080`, http.HandlerFunc(webhook))
@@ -30,18 +37,4 @@ func webhook(w http.ResponseWriter, r *http.Request) {
         "version": "1.0"
       }
     `))
-}
-
-// функция main вызывается автоматически при запуске приложения
-func main() {
-
-	// err := http.ListenAndServe(`:8080`, nil)
-
-	// if err != nil {
-	// 	panic("something gone wrong")
-	// }
-
-	if err := run(); err != nil {
-		panic(err)
-	}
 }
